@@ -7,4 +7,8 @@ public abstract class CrewMember {
         this.crewMemberRank = crewMemberRank;
     }
 
+    public String getName(){
+        return this.name;
+    }
+
 }
