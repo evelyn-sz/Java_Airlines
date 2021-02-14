@@ -17,6 +17,11 @@ public class CabinCrewMemberTest {
     }
 
     @Test
+    public void hasRank() {
+        assertEquals("Flight Attendant", anakin.getRankFromEnum());
+    }
+
+    @Test
     public void canTalkToPassengers(){
         assertEquals("We're about to go past The Death Star.", anakin.talk());
     }

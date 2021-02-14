@@ -15,4 +15,9 @@ public class CrewMemberTest {
     public void hasName() {
         assertEquals("Anakin", anakin.getName());
     }
+
+    @Test
+    public void hasRank() {
+        assertEquals("Flight Attendant", anakin.getRankFromEnum());
+    }
 }

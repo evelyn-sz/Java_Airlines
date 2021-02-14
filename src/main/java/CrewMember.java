@@ -11,4 +11,8 @@ public abstract class CrewMember {
         return this.name;
     }
 
+    public String getRankFromEnum(){
+        return this.crewMemberRank.getRank();
+    }
+
 }
