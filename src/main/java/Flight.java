@@ -9,9 +9,9 @@ public class Flight {
     private ArrayList<Pilot> pilotList;
     private ArrayList<CabinCrewMember> cabinCrewMemberList;
     private ArrayList<Passenger> passengerList;
-    private Object assignedPlane;
+    private PlaneType assignedPlane;
 
-    public Flight(String flightNumber, AirportsList destinationAirport, AirportsList departureAirport, String departureTime) {
+    public Flight(String flightNumber, AirportsList destinationAirport, AirportsList departureAirport, String departureTime, PlaneType assignedPlane) {
         this.flightNumber = flightNumber;
         this.destinationAirport = destinationAirport.getAirport();
         this.departureAirport = departureAirport.getAirport();
@@ -20,7 +20,10 @@ public class Flight {
         this.cabinCrewMemberList = new ArrayList<CabinCrewMember>();
         this.passengerList = new ArrayList<Passenger>();
         this.assignedPlane = assignedPlane;
-    }
+        assignedPlane.getModel();
+        assignedPlane.getPassengerCapacity();
+        assignedPlane.getBaggageCapacity();
+        }
 
     public String getFlightNumber() {
         return flightNumber;
@@ -36,6 +39,10 @@ public class Flight {
 
     public String getDepartureTime() {
         return departureTime;
+    }
+
+    public PlaneType getAssignedPlane() {
+        return this.assignedPlane;
     }
 
     public ArrayList getListOfCabinCrewMembers() {
@@ -61,4 +68,5 @@ public class Flight {
     public void remove(ArrayList array, Object object) {
         array.remove(object);
     }
+
 }

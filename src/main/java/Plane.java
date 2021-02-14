@@ -1,23 +1,23 @@
 public class Plane {
-    private String model;
-    private int passengerCapacity;
-    private int baggageCapacity;
 
-    public Plane(String model, int passengerCapacity, int baggageCapacity) {
-        this.model = model;
-        this.passengerCapacity = passengerCapacity;
-        this.baggageCapacity = baggageCapacity;
+    PlaneType planeType;
+
+    public Plane(PlaneType planeType) {
+//        planeType.getModel();
+//        planeType.getPassengerCapacity();
+//        planeType.getBaggageCapacity();
+        this.planeType = planeType;
     }
 
-    public String getModel() {
-        return model;
+    public String getModelFromEnum() {
+        return planeType.getModel();
     }
 
-    public int getPassengerCapacity() {
-        return passengerCapacity;
+    public int getPassengerCapacityFromEnum() {
+        return planeType.getPassengerCapacity();
     }
 
-    public int getBaggageCapacity() {
-        return baggageCapacity;
+    public int getBaggageCapacityFromEnum() {
+        return planeType.getBaggageCapacity();
     }
 }

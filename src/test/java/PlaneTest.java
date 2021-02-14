@@ -9,21 +9,21 @@ public class PlaneTest {
 
     @Before
     public void setUp(){
-        plane = new Plane("Mars Rover", 2, 4);
+        plane = new Plane(PlaneType.MARSROVER);
     }
 
     @Test
     public void hasName() {
-        assertEquals("Mars Rover", plane.getModel());
+        assertEquals("Mars Rover", plane.getModelFromEnum());
     }
 
     @Test
     public void hasPassengerCapacity() {
-        assertEquals(2, plane.getPassengerCapacity());
+        assertEquals(2, plane.getPassengerCapacityFromEnum());
     }
 
     @Test
     public void hasBaggageCapacity() {
-        assertEquals(4, plane.getBaggageCapacity());
+        assertEquals(2, plane.getBaggageCapacityFromEnum());
     }
 }

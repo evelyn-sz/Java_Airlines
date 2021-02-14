@@ -23,7 +23,7 @@ public class FlightTest {
 
     @Before
     public void setUp(){
-        flight  = new Flight("POI098", AirportsList.LHR, AirportsList.EDI, "06:00");
+        flight  = new Flight("POI098", AirportsList.LHR, AirportsList.EDI, "06:00", PlaneType.MARSROVER);
         yoda    = new Pilot("Yoda", CrewMemberRank.PILOT, "ABC123" );
         chewbacca = new Pilot("Chewbacca", CrewMemberRank.PILOT, "DEF123");
         r2d2 = new CabinCrewMember("R2D2", CrewMemberRank.FLIGHTMANAGER);
@@ -32,7 +32,7 @@ public class FlightTest {
         anakin  = new Passenger("Anakin", 1);
         luke    = new Passenger("Luke", 2);
         darthVader  = new Passenger("Darth Vader", 4);
-        marsRover   = new Plane("Mars Rover", 2, 2);
+//        marsRover   = new Plane("Mars Rover", 2, 2);
         pilotList           = new ArrayList<Pilot>(flight.getListOfPilots());
         cabinCrewMemberList = new ArrayList<CabinCrewMember>(flight.getListOfCabinCrewMembers());
         passengerList       = new ArrayList<Passenger>(flight.getListOfPassengers());
@@ -57,6 +57,11 @@ public class FlightTest {
     @Test
     public void hasDepartureTime() {
         assertEquals("06:00", flight.getDepartureTime());
+    }
+
+    @Test
+    public void hasPlaneAssigned() {
+        assertEquals(PlaneType.MARSROVER, flight.getAssignedPlane());
     }
 
     @Test
@@ -123,8 +128,4 @@ public class FlightTest {
         assertEquals(2, flight.getListSize(passengerList));
     }
 
-
-//    @Test
-//    public void hasPlaneAssigned() {
-//    }
 }
