@@ -3,9 +3,6 @@ public class Plane {
     PlaneType planeType;
 
     public Plane(PlaneType planeType) {
-//        planeType.getModel();
-//        planeType.getPassengerCapacity();
-//        planeType.getBaggageCapacity();
         this.planeType = planeType;
     }
 

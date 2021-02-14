@@ -16,7 +16,6 @@ public class FlightTest {
     Passenger anakin;
     Passenger luke;
     Passenger darthVader;
-    Plane marsRover;
     ArrayList pilotList;
     ArrayList cabinCrewMemberList;
     ArrayList passengerList;
@@ -32,7 +31,6 @@ public class FlightTest {
         anakin  = new Passenger("Anakin", 1);
         luke    = new Passenger("Luke", 2);
         darthVader  = new Passenger("Darth Vader", 4);
-//        marsRover   = new Plane("Mars Rover", 2, 2);
         pilotList           = new ArrayList<Pilot>(flight.getListOfPilots());
         cabinCrewMemberList = new ArrayList<CabinCrewMember>(flight.getListOfCabinCrewMembers());
         passengerList       = new ArrayList<Passenger>(flight.getListOfPassengers());
@@ -128,4 +126,24 @@ public class FlightTest {
         assertEquals(2, flight.getListSize(passengerList));
     }
 
+    @Test
+    public void planeHasModel(){
+        assertEquals("Mars Rover", flight.getPlaneModelFromEnum());
+    }
+
+    @Test
+    public void planeHasPassengerCapacity() {
+        assertEquals(2, flight.getPassengerCapacityFromEnum());
+    }
+
+    @Test
+    public void planeHasBaggageCapacity(){
+        assertEquals(2, flight.getBaggageCapacityFromEnum());
+    }
+
+    @Test
+    public void showsSeatsRemaining() {
+        flight.add(passengerList, anakin);
+        assertEquals(1, flight.getSeatsRemaining());
+    }
 }

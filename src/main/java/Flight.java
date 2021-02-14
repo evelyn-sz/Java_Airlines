@@ -10,6 +10,8 @@ public class Flight {
     private ArrayList<CabinCrewMember> cabinCrewMemberList;
     private ArrayList<Passenger> passengerList;
     private PlaneType assignedPlane;
+    private int passengerCapacity;
+    private int baggageCapacity;
 
     public Flight(String flightNumber, AirportsList destinationAirport, AirportsList departureAirport, String departureTime, PlaneType assignedPlane) {
         this.flightNumber = flightNumber;
@@ -20,9 +22,9 @@ public class Flight {
         this.cabinCrewMemberList = new ArrayList<CabinCrewMember>();
         this.passengerList = new ArrayList<Passenger>();
         this.assignedPlane = assignedPlane;
-        assignedPlane.getModel();
-        assignedPlane.getPassengerCapacity();
-        assignedPlane.getBaggageCapacity();
+
+//        this.passengerCapacity = assignedPlane.getPassengerCapacity();
+//        this.baggageCapacity = assignedPlane.getBaggageCapacity();
         }
 
     public String getFlightNumber() {
@@ -43,6 +45,18 @@ public class Flight {
 
     public PlaneType getAssignedPlane() {
         return this.assignedPlane;
+    }
+
+    public String getPlaneModelFromEnum(){
+        return this.assignedPlane.getModel();
+    }
+
+    public int getPassengerCapacityFromEnum(){
+        return this.assignedPlane.getPassengerCapacity();
+    }
+
+    public int getBaggageCapacityFromEnum(){
+        return this.assignedPlane.getBaggageCapacity();
     }
 
     public ArrayList getListOfCabinCrewMembers() {
@@ -67,6 +81,10 @@ public class Flight {
 
     public void remove(ArrayList array, Object object) {
         array.remove(object);
+    }
+
+    public int getSeatsRemaining(){
+        return this.assignedPlane.getPassengerCapacity() - getListSize(passengerList);
     }
 
 }
