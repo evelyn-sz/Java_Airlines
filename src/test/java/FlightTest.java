@@ -71,23 +71,59 @@ public class FlightTest {
     }
 
     @Test
+    public void canRemovePilot() {
+        flight.add(pilotList, yoda);
+        flight.add(pilotList, chewbacca);
+        flight.remove(pilotList, yoda);
+        assertEquals(1, flight.getListSize(pilotList));
+    }
+
+    @Test
     public void crewMemberListStartsEmpty() {
         assertEquals(0, flight.getListSize(cabinCrewMemberList));
     }
-//
-//    @Test
-//    public void canAddCrewMembers() {
-//    }
-//
+
+    @Test
+    public void canAddCrewMembers() {
+        flight.add(cabinCrewMemberList, r2d2);
+        flight.add(cabinCrewMemberList, k2so);
+        flight.add(cabinCrewMemberList, c3po);
+        assertEquals(3, flight.getListSize(cabinCrewMemberList));
+    }
+
+    @Test
+    public void canRemoveCabinCrewMember() {
+        flight.add(cabinCrewMemberList, c3po);
+        flight.add(cabinCrewMemberList, r2d2);
+        flight.add(cabinCrewMemberList, k2so);
+        flight.remove(cabinCrewMemberList, r2d2);
+        assertEquals(2, flight.getListSize(cabinCrewMemberList));
+    }
+
+
     @Test
     public void passengerListStartsEmpty() {
         assertEquals(0, flight.getListSize(passengerList));
     }
-//
-//    @Test
-//    public void canAddPassengers() {
-//    }
-//
+
+    @Test
+    public void canAddPassengers() {
+        flight.add(passengerList, anakin);
+        flight.add(passengerList, luke);
+        flight.add(passengerList, darthVader);
+        assertEquals(3, flight.getListSize(passengerList));
+    }
+
+    @Test
+    public void canRemovePassenger() {
+        flight.add(passengerList, anakin);
+        flight.add(passengerList, luke);
+        flight.add(passengerList, darthVader);
+        flight.remove(passengerList, luke);
+        assertEquals(2, flight.getListSize(passengerList));
+    }
+
+
 //    @Test
 //    public void hasPlaneAssigned() {
 //    }

@@ -57,4 +57,8 @@ public class Flight {
     public int getListSize(ArrayList array) {
         return array.size();
     }
+
+    public void remove(ArrayList array, Object object) {
+        array.remove(object);
+    }
 }
