@@ -61,6 +61,10 @@ public class Flight {
         return this.assignedPlane.getBaggageAllowance();
     }
 
+    public double getBaggageAllowanceRemaining(){
+        return this.assignedPlane.getBaggageCapacity() - (this.getBaggageAllowancePerPassenger() * this.getPassengerListSize());
+    }
+
     public void addPilot(Pilot pilot) {
         this.pilotList.add(pilot);
     }

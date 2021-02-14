@@ -159,6 +159,16 @@ public class FlightTest {
         assertEquals(1, flight.getBaggageAllowancePerPassenger(), 0.0);
         assertEquals(0.66, flight2.getBaggageAllowancePerPassenger(), 0.01);
         assertEquals(8.88, flight3.getBaggageAllowancePerPassenger(), 0.01);
+    }
 
+    @Test
+    public void getsBaggageAllowanceRemaining(){
+        assertEquals(2, flight.getBaggageAllowanceRemaining(), 0.0);
+        flight2.addPassenger(anakin);
+        assertEquals(1.33, flight2.getBaggageAllowanceRemaining(), 0.01);
+        flight3.addPassenger(anakin);
+        flight3.addPassenger(luke);
+        flight3.addPassenger(darthVader);
+        assertEquals(133.33, flight3.getBaggageAllowanceRemaining(), 0.01);
     }
 }
