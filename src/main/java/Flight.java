@@ -69,22 +69,60 @@ public class Flight {
 
     public ArrayList getListOfPilots(){
         return this.pilotList;
+    }
 
-    }
-    public void add(ArrayList array, Object object){
-        array.add(object);
-    }
+
+//    public void add(ArrayList array, Object object){
+//        array.add(object);
+//    }
 
     public int getListSize(ArrayList array) {
         return array.size();
     }
 
-    public void remove(ArrayList array, Object object) {
-        array.remove(object);
+//    public void remove(ArrayList array, Object object) {
+//        array.remove(object);
+//    }
+
+    public int getSeatsRemaining(){
+        return this.getPassengerCapacityFromEnum() - getPassengerListSize();
     }
 
-    public int getSeatsRemaining(ArrayList array){
-        return this.getPassengerCapacityFromEnum() - getListSize(array);
+    public void addPilot(Pilot pilot) {
+        this.pilotList.add(pilot);
     }
+
+    public void removePilot(Pilot pilot){
+        this.pilotList.remove(pilot);
+    }
+
+    public int getPilotListSize(){
+        return this.pilotList.size();
+    }
+
+    public void addCabinCrewMember(CabinCrewMember cabinCrewMember){
+        this.cabinCrewMemberList.add(cabinCrewMember);
+    }
+
+    public void removeCabinCrewMember(CabinCrewMember cabinCrewMember){
+        this.cabinCrewMemberList.remove(cabinCrewMember);
+    }
+
+    public int getCabinCrewMemberListSize() {
+        return this.cabinCrewMemberList.size();
+    }
+
+    public void addPassenger(Passenger passenger){
+        this.passengerList.add(passenger);
+    }
+
+    public void removePassenger(Passenger passenger){
+        this.passengerList.remove(passenger);
+    }
+
+    public int getPassengerListSize() {
+        return this.passengerList.size();
+    }
+
 
 }

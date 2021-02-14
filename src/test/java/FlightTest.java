@@ -64,66 +64,66 @@ public class FlightTest {
 
     @Test
     public void pilotListStartsEmpty() {
-        assertEquals(0, flight.getListSize(pilotList));
+        assertEquals(0, flight.getPilotListSize());
     }
     @Test
     public void canAddPilots() {
-        flight.add(pilotList, yoda);
-        flight.add(pilotList, chewbacca);
-        assertEquals(2, flight.getListSize(pilotList));
+        flight.addPilot(yoda);
+        flight.addPilot(chewbacca);
+        assertEquals(2, flight.getPilotListSize());
     }
 
     @Test
     public void canRemovePilot() {
-        flight.add(pilotList, yoda);
-        flight.add(pilotList, chewbacca);
-        flight.remove(pilotList, yoda);
-        assertEquals(1, flight.getListSize(pilotList));
+        flight.addPilot(yoda);
+        flight.addPilot(chewbacca);
+        flight.removePilot(yoda);
+        assertEquals(1, flight.getPilotListSize());
     }
 
     @Test
     public void crewMemberListStartsEmpty() {
-        assertEquals(0, flight.getListSize(cabinCrewMemberList));
+        assertEquals(0, flight.getCabinCrewMemberListSize());
     }
 
     @Test
     public void canAddCrewMembers() {
-        flight.add(cabinCrewMemberList, r2d2);
-        flight.add(cabinCrewMemberList, k2so);
-        flight.add(cabinCrewMemberList, c3po);
-        assertEquals(3, flight.getListSize(cabinCrewMemberList));
+        flight.addCabinCrewMember(r2d2);
+        flight.addCabinCrewMember(k2so);
+        flight.addCabinCrewMember(c3po);
+        assertEquals(3, flight.getCabinCrewMemberListSize());
     }
 
     @Test
     public void canRemoveCabinCrewMember() {
-        flight.add(cabinCrewMemberList, c3po);
-        flight.add(cabinCrewMemberList, r2d2);
-        flight.add(cabinCrewMemberList, k2so);
-        flight.remove(cabinCrewMemberList, r2d2);
-        assertEquals(2, flight.getListSize(cabinCrewMemberList));
+        flight.addCabinCrewMember(r2d2);
+        flight.addCabinCrewMember(k2so);
+        flight.addCabinCrewMember(c3po);
+        flight.removeCabinCrewMember(r2d2);
+        assertEquals(2, flight.getCabinCrewMemberListSize());
     }
 
 
     @Test
     public void passengerListStartsEmpty() {
-        assertEquals(0, flight.getListSize(passengerList));
+        assertEquals(0, flight.getPassengerListSize());
     }
 
     @Test
     public void canAddPassengers() {
-        flight.add(passengerList, anakin);
-        flight.add(passengerList, luke);
-        flight.add(passengerList, darthVader);
-        assertEquals(3, flight.getListSize(passengerList));
+        flight.addPassenger(anakin);
+        flight.addPassenger(luke);
+        flight.addPassenger(darthVader);
+        assertEquals(3, flight.getPassengerListSize());
     }
 
     @Test
     public void canRemovePassenger() {
-        flight.add(passengerList, anakin);
-        flight.add(passengerList, luke);
-        flight.add(passengerList, darthVader);
-        flight.remove(passengerList, luke);
-        assertEquals(2, flight.getListSize(passengerList));
+        flight.addPassenger(anakin);
+        flight.addPassenger(luke);
+        flight.addPassenger(darthVader);
+        flight.removePassenger(luke);
+        assertEquals(2, flight.getPassengerListSize());
     }
 
     @Test
@@ -143,7 +143,7 @@ public class FlightTest {
 
     @Test
     public void showsSeatsRemaining() {
-        flight.add(passengerList, anakin);
-        assertEquals(1, flight.getSeatsRemaining(passengerList));
+        flight.addPassenger(anakin);
+        assertEquals(1, flight.getSeatsRemaining());
     }
 }
