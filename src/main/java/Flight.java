@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.HashMap;
 
 public class Flight {
     private String flightNumber;
@@ -10,22 +9,17 @@ public class Flight {
     private ArrayList<CabinCrewMember> cabinCrewMemberList;
     private ArrayList<Passenger> passengerList;
     private PlaneType assignedPlane;
-    private int passengerCapacity;
-    private int baggageCapacity;
 
     public Flight(String flightNumber, AirportsList destinationAirport, AirportsList departureAirport, String departureTime, PlaneType assignedPlane) {
         this.flightNumber = flightNumber;
         this.destinationAirport = destinationAirport.getAirport();
         this.departureAirport = departureAirport.getAirport();
         this.departureTime = departureTime;
-        this.pilotList = new ArrayList<Pilot>();
-        this.cabinCrewMemberList = new ArrayList<CabinCrewMember>();
-        this.passengerList = new ArrayList<Passenger>();
+        this.pilotList = new ArrayList<>();
+        this.cabinCrewMemberList = new ArrayList<>();
+        this.passengerList = new ArrayList<>();
         this.assignedPlane = assignedPlane;
-
-//        this.passengerCapacity = assignedPlane.getPassengerCapacity();
-//        this.baggageCapacity = assignedPlane.getBaggageCapacity();
-        }
+     }
 
     public String getFlightNumber() {
         return flightNumber;
@@ -47,45 +41,20 @@ public class Flight {
         return this.assignedPlane;
     }
 
-    public String getPlaneModelFromEnum(){
+    public String getPlaneModel(){
         return this.assignedPlane.getModel();
     }
 
-    public int getPassengerCapacityFromEnum(){
+    public int getPassengerCapacity(){
         return this.assignedPlane.getPassengerCapacity();
     }
 
-    public int getBaggageCapacityFromEnum(){
+    public int getBaggageCapacity(){
         return this.assignedPlane.getBaggageCapacity();
     }
 
-    public ArrayList getListOfCabinCrewMembers() {
-        return cabinCrewMemberList;
-    }
-
-    public ArrayList getListOfPassengers() {
-        return passengerList;
-    }
-
-    public ArrayList getListOfPilots(){
-        return this.pilotList;
-    }
-
-
-//    public void add(ArrayList array, Object object){
-//        array.add(object);
-//    }
-
-    public int getListSize(ArrayList array) {
-        return array.size();
-    }
-
-//    public void remove(ArrayList array, Object object) {
-//        array.remove(object);
-//    }
-
     public int getSeatsRemaining(){
-        return this.getPassengerCapacityFromEnum() - getPassengerListSize();
+        return this.getPassengerCapacity() - getPassengerListSize();
     }
 
     public void addPilot(Pilot pilot) {
@@ -100,6 +69,9 @@ public class Flight {
         return this.pilotList.size();
     }
 
+    public ArrayList getListOfPilots(){
+        return this.pilotList;
+    }
     public void addCabinCrewMember(CabinCrewMember cabinCrewMember){
         this.cabinCrewMemberList.add(cabinCrewMember);
     }
@@ -112,7 +84,12 @@ public class Flight {
         return this.cabinCrewMemberList.size();
     }
 
+    public ArrayList getListOfCabinCrewMembers() {
+        return cabinCrewMemberList;
+    }
+
     public void addPassenger(Passenger passenger){
+        if(getPassengerListSize() < this.getPassengerCapacity())
         this.passengerList.add(passenger);
     }
 
@@ -123,6 +100,23 @@ public class Flight {
     public int getPassengerListSize() {
         return this.passengerList.size();
     }
+
+    public ArrayList getListOfPassengers() {
+        return passengerList;
+    }
+
+//    public void add(ArrayList array, Object object){
+//        array.add(object);
+//    }
+
+//    public int getListSize(ArrayList array) {
+//        return array.size();
+//    }
+
+//    public void remove(ArrayList array, Object object) {
+//        array.remove(object);
+//    }
+
 
 
 }

@@ -25,4 +25,10 @@ public class PilotTest{
     public void hasLicenseNumber() {
         assertEquals("ABC123", yoda.getLicenseNumber());
     }
+
+    @Test
+    public void pilotCanFlu(){
+        assertEquals("Whizzz", yoda.fly());
+    }
+
 }

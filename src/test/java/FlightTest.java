@@ -8,6 +8,7 @@ import static org.junit.Assert.assertEquals;
 public class FlightTest {
 
     Flight flight;
+    Flight flight2;
     Pilot yoda;
     Pilot chewbacca;
     CabinCrewMember r2d2;
@@ -23,13 +24,14 @@ public class FlightTest {
     @Before
     public void setUp(){
         flight  = new Flight("POI098", AirportsList.LHR, AirportsList.EDI, "06:00", PlaneType.MARSROVER);
-        yoda    = new Pilot("Yoda", CrewMemberRank.PILOT, "ABC123" );
-        chewbacca = new Pilot("Chewbacca", CrewMemberRank.PILOT, "DEF123");
+        flight2 = new Flight("LKJ098", AirportsList.GLA, AirportsList.LTN, "18:00", PlaneType.APOLLO13);
+        yoda        = new Pilot("Yoda", CrewMemberRank.PILOT, "ABC123" );
+        chewbacca   = new Pilot("Chewbacca", CrewMemberRank.PILOT, "DEF123");
         r2d2 = new CabinCrewMember("R2D2", CrewMemberRank.FLIGHTMANAGER);
         k2so = new CabinCrewMember("K2SO", CrewMemberRank.FLIGHTATTENDANT);
         c3po = new CabinCrewMember("C3PO", CrewMemberRank.FLIGHTATTENDANT);
-        anakin  = new Passenger("Anakin", 1);
-        luke    = new Passenger("Luke", 2);
+        anakin      = new Passenger("Anakin", 1);
+        luke        = new Passenger("Luke", 2);
         darthVader  = new Passenger("Darth Vader", 4);
         pilotList           = new ArrayList<Pilot>(flight.getListOfPilots());
         cabinCrewMemberList = new ArrayList<CabinCrewMember>(flight.getListOfCabinCrewMembers());
@@ -114,36 +116,39 @@ public class FlightTest {
         flight.addPassenger(anakin);
         flight.addPassenger(luke);
         flight.addPassenger(darthVader);
-        assertEquals(3, flight.getPassengerListSize());
-    }
-
-    @Test
-    public void canRemovePassenger() {
-        flight.addPassenger(anakin);
-        flight.addPassenger(luke);
-        flight.addPassenger(darthVader);
-        flight.removePassenger(luke);
         assertEquals(2, flight.getPassengerListSize());
     }
 
     @Test
+    public void canRemovePassengerANDwontAddOverCapacity() {
+        flight.addPassenger(anakin);
+        flight.addPassenger(luke);
+        flight.addPassenger(darthVader);
+        flight.removePassenger(luke);
+        assertEquals(1, flight.getPassengerListSize());
+    }
+
+    @Test
     public void planeHasModel(){
-        assertEquals("Mars Rover", flight.getPlaneModelFromEnum());
+        assertEquals("Mars Rover", flight.getPlaneModel());
     }
 
     @Test
     public void planeHasPassengerCapacity() {
-        assertEquals(2, flight.getPassengerCapacityFromEnum());
+        assertEquals(2, flight.getPassengerCapacity());
     }
 
     @Test
     public void planeHasBaggageCapacity(){
-        assertEquals(2, flight.getBaggageCapacityFromEnum());
+        assertEquals(2, flight.getBaggageCapacity());
     }
 
     @Test
     public void showsSeatsRemaining() {
         flight.addPassenger(anakin);
         assertEquals(1, flight.getSeatsRemaining());
+        flight2.addPassenger(luke);
+        flight2.addPassenger(darthVader);
+        assertEquals(1, flight2.getSeatsRemaining());
     }
 }

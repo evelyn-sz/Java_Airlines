@@ -10,4 +10,8 @@ public class Pilot extends CrewMember{
     public String getLicenseNumber() {
         return this.licenseNumber;
     }
+
+    public String fly(){
+        return "Whizzz";
+    }
 }

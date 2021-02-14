@@ -6,6 +6,10 @@ public class Plane {
         this.planeType = planeType;
     }
 
+    public PlaneType getPlaneType(){
+        return planeType;
+    }
+
     public String getModelFromEnum() {
         return planeType.getModel();
     }

@@ -1,6 +1,6 @@
 public enum PlaneType {
     MARSROVER("Mars Rover",2, 2),
-    APOLLO13("Apollo 13", 1, 2);
+    APOLLO13("Apollo 13", 3, 2);
 
     private final String model;
     private final int passengerCapacity;
