@@ -83,8 +83,8 @@ public class Flight {
         array.remove(object);
     }
 
-    public int getSeatsRemaining(){
-        return this.assignedPlane.getPassengerCapacity() - getListSize(passengerList);
+    public int getSeatsRemaining(ArrayList array){
+        return this.getPassengerCapacityFromEnum() - getListSize(array);
     }
 
 }

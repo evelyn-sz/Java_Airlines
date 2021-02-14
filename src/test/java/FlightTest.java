@@ -144,6 +144,6 @@ public class FlightTest {
     @Test
     public void showsSeatsRemaining() {
         flight.add(passengerList, anakin);
-        assertEquals(1, flight.getSeatsRemaining());
+        assertEquals(1, flight.getSeatsRemaining(passengerList));
     }
 }
