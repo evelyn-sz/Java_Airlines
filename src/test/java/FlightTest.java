@@ -9,6 +9,7 @@ public class FlightTest {
 
     Flight flight;
     Flight flight2;
+    Flight flight3;
     Pilot yoda;
     Pilot chewbacca;
     CabinCrewMember r2d2;
@@ -25,6 +26,7 @@ public class FlightTest {
     public void setUp(){
         flight  = new Flight("POI098", AirportsList.LHR, AirportsList.EDI, "06:00", PlaneType.MARSROVER);
         flight2 = new Flight("LKJ098", AirportsList.GLA, AirportsList.LTN, "18:00", PlaneType.APOLLO13);
+        flight3 = new Flight("ASD123", AirportsList.GLA, AirportsList.LTN, "18:00", PlaneType.ROCKET);
         yoda        = new Pilot("Yoda", CrewMemberRank.PILOT, "ABC123" );
         chewbacca   = new Pilot("Chewbacca", CrewMemberRank.PILOT, "DEF123");
         r2d2 = new CabinCrewMember("R2D2", CrewMemberRank.FLIGHTMANAGER);
@@ -135,20 +137,28 @@ public class FlightTest {
 
     @Test
     public void planeHasPassengerCapacity() {
-        assertEquals(2, flight.getPassengerCapacity());
+        assertEquals(2, flight.getPassengerCapacity(), 0.0);
     }
 
     @Test
     public void planeHasBaggageCapacity(){
-        assertEquals(2, flight.getBaggageCapacity());
+        assertEquals(2, flight.getBaggageCapacity(), 0.0);
     }
 
     @Test
     public void showsSeatsRemaining() {
         flight.addPassenger(anakin);
-        assertEquals(1, flight.getSeatsRemaining());
+        assertEquals(1, flight.getSeatsRemaining(), 0.0);
         flight2.addPassenger(luke);
         flight2.addPassenger(darthVader);
-        assertEquals(1, flight2.getSeatsRemaining());
+        assertEquals(1, flight2.getSeatsRemaining(), 0.0);
+    }
+
+    @Test
+    public void getsBaggageAllowance(){
+        assertEquals(1, flight.getBaggageAllowancePerPassenger(), 0.0);
+        assertEquals(0.66, flight2.getBaggageAllowancePerPassenger(), 0.01);
+        assertEquals(8.88, flight3.getBaggageAllowancePerPassenger(), 0.01);
+
     }
 }

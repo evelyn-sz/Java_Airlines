@@ -19,11 +19,11 @@ public class PlaneTest {
 
     @Test
     public void hasPassengerCapacity() {
-        assertEquals(2, plane.getPassengerCapacityFromEnum());
+        assertEquals(2, plane.getPassengerCapacityFromEnum(), 0.0);
     }
 
     @Test
     public void hasBaggageCapacity() {
-        assertEquals(2, plane.getBaggageCapacityFromEnum());
+        assertEquals(2, plane.getBaggageCapacityFromEnum(), 0.0);
     }
 }

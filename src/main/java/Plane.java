@@ -14,11 +14,11 @@ public class Plane {
         return planeType.getModel();
     }
 
-    public int getPassengerCapacityFromEnum() {
+    public double getPassengerCapacityFromEnum() {
         return planeType.getPassengerCapacity();
     }
 
-    public int getBaggageCapacityFromEnum() {
+    public double getBaggageCapacityFromEnum() {
         return planeType.getBaggageCapacity();
     }
 }

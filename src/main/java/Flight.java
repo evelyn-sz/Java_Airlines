@@ -45,16 +45,20 @@ public class Flight {
         return this.assignedPlane.getModel();
     }
 
-    public int getPassengerCapacity(){
+    public double getPassengerCapacity(){
         return this.assignedPlane.getPassengerCapacity();
     }
 
-    public int getBaggageCapacity(){
+    public double getBaggageCapacity(){
         return this.assignedPlane.getBaggageCapacity();
     }
 
-    public int getSeatsRemaining(){
+    public double getSeatsRemaining(){
         return this.getPassengerCapacity() - getPassengerListSize();
+    }
+
+    public double getBaggageAllowancePerPassenger(){
+        return this.assignedPlane.getBaggageAllowance();
     }
 
     public void addPilot(Pilot pilot) {
@@ -104,6 +108,7 @@ public class Flight {
     public ArrayList getListOfPassengers() {
         return passengerList;
     }
+
 
 //    public void add(ArrayList array, Object object){
 //        array.add(object);
